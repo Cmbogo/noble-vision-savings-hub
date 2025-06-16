@@ -3,8 +3,15 @@ import { Users, TrendingUp, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="bg-gradient-to-br from-blue-50 to-green-50 py-20 px-4">
+    <section id="hero" className="bg-gradient-to-br from-blue-50 to-green-50 py-20 px-4 pt-32">
       <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
           Noble Vision Welfare
@@ -15,10 +22,18 @@ export const Hero = () => {
           and building a brighter future together
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+          <Button 
+            size="lg" 
+            className="bg-blue-600 hover:bg-blue-700"
+            onClick={() => scrollToSection('about')}
+          >
             Learn About Our Mission
           </Button>
-          <Button size="lg" variant="outline">
+          <Button 
+            size="lg" 
+            variant="outline"
+            onClick={() => scrollToSection('contact')}
+          >
             Join Our Community
           </Button>
         </div>
